@@ -1,0 +1,12 @@
+<library path="ackermann_arduino">
+  <class name="ackermann_arduino/AckermannArduinoHardware"
+    type="ackermann_arduino::AckermannArduinoHardware"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      The ros2_control CarlikeBot example using a system hardware interface-type. It uses velocity
+      and position command and state interface for each drive motor and position command and state
+      interface for each steering wheel.
+      It uses ros2_control ackermann steering.
+    </description>
+  </class>
+</library>

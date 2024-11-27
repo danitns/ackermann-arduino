@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="carlikebot_ros2_control" params="name prefix">
+
+    <ros2_control name="RealRobot" type="system">
+      <hardware>
+        <plugin>ackermann_arduino/AckermannArduinoHardware</plugin>
+        <param name="front_left_wheel_name">front_left_wheel_joint</param>
+        <param name="front_right_wheel_name">front_right_wheel_joint</param>
+        <param name="rear_left_wheel_name">rear_left_wheel_joint</param>
+        <param name="rear_right_wheel_name">rear_right_wheel_joint</param>
+        <param name="loop_rate">30</param>
+        <param name="device">/dev/ttyACM0</param>
+        <param name="baud_rate">57600</param>
+        <param name="timeout_ms">1000</param>
+        <param name="enc_counts_per_rev">1320</param>
+      </hardware>
+      <joint name="${prefix}front_right_wheel_joint">
+        <command_interface name="position" />
+        <state_interface name="position" />
+      </joint>
+      <joint name="${prefix}front_left_wheel_joint">
+        <command_interface name="position" />
+        <state_interface name="position" />
+      </joint>
+      <joint name="${prefix}rear_right_wheel_joint">
+        <command_interface name="velocity" />
+        <state_interface name="velocity" />
+        <state_interface name="position" />
+      </joint>
+      <joint name="${prefix}rear_left_wheel_joint">
+        <command_interface name="velocity" />
+        <state_interface name="velocity" />
+        <state_interface name="position" />
+      </joint>
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>
